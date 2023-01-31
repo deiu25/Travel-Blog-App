@@ -7,6 +7,7 @@ const app = express();
 dotenv.config();
 
 // middlewares
+app.use(express.json());
 app.use("/user", userRouter);
 
 // connections
