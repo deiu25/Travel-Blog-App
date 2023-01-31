@@ -1,11 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import userRouter from "./routing/user-routes";
 
 const app = express();
 dotenv.config();
 
 // middlewares
+app.use("/user", userRouter);
 
 // connections
 mongoose
