@@ -24,3 +24,5 @@ mongoose
 
 //mongoDb password
 //HxJ-PJUq8wngG.L
+
+//npm run dev
