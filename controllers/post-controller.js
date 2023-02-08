@@ -1,4 +1,6 @@
+import mongoose from "mongoose";
 import Post from "../models/Post";
+import User from "../models/User";
 
 export const getAllPosts = async (req, res) => {
   let posts;
@@ -30,6 +32,18 @@ export const addPost = async (req, res) => {
   ) {
     return res.status(422).json({ message: "Invalid Data" });
   }
+
+  let existingUser;
+  try {
+    existingUser = await User.findById(user);
+  } catch (err) {
+    console.log(err);
+  }
+
+  if (!existingUser) {
+    return res.status(404).json({ message: "User not found" });
+  }
+
   let post;
 
   try {
@@ -41,7 +55,15 @@ export const addPost = async (req, res) => {
       date: new Date(`${date}`),
       user,
     });
-    post = await post.save();
+
+    const session = await mongoose.startSession();
+
+    session.startTransaction();
+
+    existingUser.posts.push(post);
+    await existingUser.save({ session });
+    post = await post.save({ session });
+    session.commitTransaction();
   } catch (err) {
     return console.log(err);
   }
@@ -107,7 +129,13 @@ export const deletePost = async (req, res) => {
   const id = req.params.id;
   let post;
   try {
+    const session = await mongoose.startSession();
+    session.startTransaction();
+    post = await Post.findById(id).populate("user");
+    post.user.posts.pull(post);
+    await post.user.save({ session });
     post = await Post.findByIdAndRemove(id);
+    session.commitTransaction();
   } catch (err) {
     if (!post) {
       return res.status(500).json({ message: "Unable to delete" });
