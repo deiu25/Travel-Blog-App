@@ -1,7 +1,9 @@
-require('dotenv').config();
-const nodemailer = require("nodemailer");
-const hbs = require("nodemailer-express-handlebars");
-const path = require("path");
+import dotenv from 'dotenv';
+import nodemailer from 'nodemailer';
+import hbs from 'nodemailer-express-handlebars';
+import path from 'path';
+
+dotenv.config();
 
 const sendEmail = async (
   subject,
@@ -60,4 +62,4 @@ const sendEmail = async (
   });
 };
 
-module.exports = sendEmail;
+export default sendEmail;

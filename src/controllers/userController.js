@@ -1,16 +1,19 @@
-require("dotenv").config();
-const asyncHandler = require("express-async-handler");
-const User = require("../models/userModel");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const sendEmail = require("../utils/sendEmail");
-const { generateToken, hashToken } = require("../utils");
-var parser = require("ua-parser-js");
-const Token = require("../models/tokenModel");
-const crypto = require("crypto");
-const Cryptr = require("cryptr");
-const { OAuth2Client } = require("google-auth-library");
-const cloudinary = require("cloudinary").v2;
+import dotenv from "dotenv";
+import asyncHandler from "express-async-handler";
+import User from "../models/userModel";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import sendEmail from "../utils/sendEmail";
+import { generateToken, hashToken } from "../utils";
+import parser from "ua-parser-js";
+import Token from "../models/tokenModel";
+import crypto from "crypto";
+import Cryptr from "cryptr";
+import { OAuth2Client } from "google-auth-library";
+import { v2 as cloudinary } from "cloudinary";
+
+dotenv.config();
+
 const cryptr = new Cryptr(process.env.CRYPTR_KEY);
 
 const client = new OAuth2Client(process.env.CLIENT_ID);
@@ -821,7 +824,7 @@ const loginWithGoogle = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = {
+export {
   registerUser,
   loginUser,
   logoutUser,

@@ -1,12 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import postRouter from "./routing/post-routes";
+import postRouter from "./routing/post-routes.js";
 import cors from "cors";
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const userRoute = require("./routing/user-routes");
-const errorHandler = require("./middleware/errorMiddleware");
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import userRoute from "./routing/user-routes.js";
+import errorHandler from "./middleware/errorMiddleware.js";
 
 const app = express();
 dotenv.config();

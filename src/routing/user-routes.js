@@ -1,15 +1,15 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const {
+import {
   protect,
   adminOnly,
   authorOnly,
-} = require("../middleware/authMiddleware");
-const {
+} from "../middleware/authMiddleware";
+import {
   registerUser, loginUser, logoutUser, getUser, updateUser, deleteUser, getUsers, loginStatus, upgradeUser, sendAutomatedEmail, sendVerificationEmail,
   verifyUser, forgotPassword, resetPassword, changePassword, sendLoginCode, loginWithCode, loginWithGoogle,
-} = require("../controllers/userController");
-const upload = require("../utils/cloudinaryConfig");
+} from "../controllers/userController";
+import upload from "../utils/cloudinaryConfig";
 
 router.post("/register", registerUser);
 router.post("/login", loginUser);
@@ -34,4 +34,4 @@ router.post("/loginWithCode/:email", loginWithCode);
 
 router.post("/google/callback", loginWithGoogle);
 
-module.exports = router;
+export default router;
