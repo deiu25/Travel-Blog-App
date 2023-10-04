@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Post from "../models/Post";
-const User = require("../models/userModel");
+import User from "../models/User";
 
 // Get All Posts
 export const getAllPosts = async (req, res) => {
