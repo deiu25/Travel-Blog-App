@@ -5,9 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && babel . --out-dir dist --copy-files --ignore node_modules",
-    "start": "node dist/app.js",
-    "dev": "nodemon --exec babel-node ./app.js"
+    "start": "node app.js",
+    "dev": "nodemon ./app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -30,13 +29,6 @@
     "ua-parser-js": "^1.0.35"
   },
   "devDependencies": {
-    "@babel/cli": "^7.18.10",
-    "@babel/core": "^7.18.13",
-    "@babel/node": "^7.18.10",
-    "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-object-rest-spread": "^7.18.9",
-    "@babel/preset-env": "^7.18.10",
-    "rimraf": "^3.0.2",
     "nodemon": "^3.0.1"
   },
   "keywords": [],

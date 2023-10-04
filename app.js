@@ -3,10 +3,10 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import postRouter from "./routing/post-routes";
 import cors from "cors";
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const userRoute = require("./routing/user-routes");
-const errorHandler = require("./middleware/errorMiddleware");
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import userRoute from "./routing/user-routes";
+import errorHandler from "./middleware/errorMiddleware";
 
 const app = express();
 dotenv.config();
@@ -23,7 +23,6 @@ app.use(
   })
 );
 
-
 app.use("/api/users", userRoute);
 app.use("/posts", postRouter);
 
@@ -39,7 +38,4 @@ mongoose
   )
   .catch((err) => console.log(err));
 
-  app.use(errorHandler);
-
-
-  //npm run dev
+app.use(errorHandler);
