@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rimraf dist && babel src --out-dir dist  --copy-files",
+    "build": "rimraf dist && babel backend --out-dir dist --copy-files",
     "start": "node dist/app.js",
-    "dev": "nodemon --exec babel-node src/app.js"
+    "dev": "nodemon --exec babel-node backend/app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
