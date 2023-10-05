@@ -1,12 +1,12 @@
 import dotenv from "dotenv";
 import asyncHandler from "express-async-handler";
-import User from "../models/userModel";
+import User from "../models/userModel.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import sendEmail from "../utils/sendEmail";
 import { generateToken, hashToken } from "../utils";
 import parser from "ua-parser-js";
-import Token from "../models/tokenModel";
+import Token from "../models/tokenModel.js";
 import crypto from "crypto";
 import Cryptr from "cryptr";
 import { OAuth2Client } from "google-auth-library";
