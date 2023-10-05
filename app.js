@@ -19,11 +19,14 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["https://travel-blog-app-frontend.vercel.app/"], 
+    origin: ["https://travel-blog-app-frontend.vercel.app", "http://localhost:3000"], 
     credentials: true,
   })
 );
-
+app.use((req, res, next) => {
+  console.log(`${req.method} request for '${req.url}'`);
+  next();
+});
 app.use("/api/users", userRoute);
 app.use("/posts", postRouter);
 
