@@ -1,8 +1,8 @@
-import { Router } from "express";
+import express from "express";
 import { addPost, deletePost, getAllPosts, getPostById, updatePost } from "../controllers/post-controller";
 import { protect } from "../middleware/authMiddleware";
 
-const postRouter = Router();
+const postRouter = express.Router();
 
 postRouter.get("/", getAllPosts);
 postRouter.get("/:id", getPostById);
