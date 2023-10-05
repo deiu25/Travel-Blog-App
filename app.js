@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["FRONTEND_URL=https://travel-blog-app-frontend.vercel.app/"], 
+    origin: ["https://travel-blog-app-frontend.vercel.app/"], 
     credentials: true,
   })
 );
