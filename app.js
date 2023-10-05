@@ -5,8 +5,8 @@ import cors from "cors";
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import postRouter from "./routing/post-routes.js";
-import userRoute from "./routing/user-routes";
-import errorHandler from "./middleware/errorMiddleware";
+import userRoute from "./routing/user-routes.js";
+import errorHandler from "./middleware/errorMiddleware.js";
 
 
 const app = express();
