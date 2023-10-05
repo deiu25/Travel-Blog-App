@@ -8,7 +8,7 @@ import Cryptr from "cryptr";
 import { OAuth2Client } from "google-auth-library";
 import { v2 as cloudinary } from "cloudinary";
 import sendEmail from "../utils/sendEmail.js";
-import { generateToken, hashToken } from "../utils";
+import { generateToken, hashToken } from "../utils/index.js";
 import parser from "ua-parser-js";
 import Token from "../models/tokenModel.js";
 
