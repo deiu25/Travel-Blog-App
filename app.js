@@ -19,14 +19,20 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["https://travel-blog-app-frontend.vercel.app", "http://localhost:3000"], 
+    origin: ["https://travel-blog-app-frontend.vercel.app"], 
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization']
   })
 );
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
 app.use((req, res, next) => {
   console.log(`${req.method} request for '${req.url}'`);
   next();
 });
+
 app.use("/api/users", userRoute);
 app.use("/posts", postRouter);
 
