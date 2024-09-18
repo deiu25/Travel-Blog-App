@@ -19,7 +19,10 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["https://travel-blog-app-frontend.vercel.app"], 
+    origin: [
+      "https://travel-blog-app-frontend.vercel.app", 
+      "https://mern-travel-blog-vg1f-hulbdhvd6-deiu25s-projects.vercel.app" 
+    ],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
   })
