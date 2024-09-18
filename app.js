@@ -42,8 +42,8 @@ mongoose
     `mongodb+srv://syntaxseekers:${process.env.MONGODB_PASSWORD}@travel.sgp0uix.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() =>
-    app.listen(5000, () =>
-      console.log("Connection Succesfull  & Listening to localhost Port 5000")
+    app.listen(5001, () =>
+      console.log("Connection Succesfull  & Listening to localhost Port 5001")
     )
   )
   .catch((err) => console.log(err));
